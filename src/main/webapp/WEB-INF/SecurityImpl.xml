@@ -23,8 +23,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
         
         
         <security:form-login login-page="/Login" default-target-url="/" 
-        login-processing-url="/loginProcess" authentication-failure-url="/Login"
-        />
+        login-processing-url="/loginProcess" authentication-failure-url="/Login" />
          
        
         

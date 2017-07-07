@@ -18,27 +18,36 @@ public class UserDetailController
 	@Autowired
 	UserDetailDAO userDetailDAO;
 	
-	@RequestMapping("/Userdetail")
+	@RequestMapping("/Register")
 	public String showUserDetail(Model m)
 	{
 		System.out.println("---UserDetail Page Displaying-----");
 		List<UserDetail> userdetaillist=userDetailDAO.getUserDetailDetails();
 		m.addAttribute("userdetail",userdetaillist);
 		
-		return "UserDetail";
+		boolean flag=false;
+		m.addAttribute("flag",flag);
+		return "Register";
+		
+		
 	}
 	
 	@RequestMapping(value="/InsertUserDetail",method=RequestMethod.POST)
-	public String insertProduct(@ModelAttribute("userdetail") UserDetail userdetail,Model m)
+	public String insertUserDetail(@ModelAttribute("userdetail") UserDetail userdetail,Model m)
 	{
 		System.out.println("---Add UserDetail Starting-----");
+		userdetail.setRole("ROLE_USER");
+        userdetail.setEnabled(true);
 		userDetailDAO.insertUpdateUserDetail(userdetail);
 		
 		List<UserDetail> userdetaillist=userDetailDAO.getUserDetailDetails();
 		m.addAttribute("userdetail",userdetaillist);
 		
+		boolean flag=false;
+		m.addAttribute("flag",flag);
+		
 		System.out.println("---UserDetail Added----");
-		return "UserDetail";
+		return "Register";
 	}
 	
 	@RequestMapping(value="/updateUserDetail/{username}")
@@ -52,7 +61,10 @@ public class UserDetailController
 		List<UserDetail> userdetaillist=userDetailDAO.getUserDetailDetails();
 		m.addAttribute("userdetail",userdetaillist);
 		
-		return "redirect:/UserDetail";
+		boolean flag=true;
+		m.addAttribute("flag",flag);
+		
+		return "Register";
 	}
 	
 	@RequestMapping(value="/deleteUserDetail/{username}")
@@ -68,7 +80,10 @@ public class UserDetailController
 		List<UserDetail> userdetaillist=userDetailDAO.getUserDetailDetails();
 		m.addAttribute("userdetail",userdetaillist);
 		
-		return "UserDetail";
+		boolean flag=false;
+		m.addAttribute("flag",flag);
+		
+		return "Register";
 	}
 	
 

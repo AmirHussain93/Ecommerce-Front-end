@@ -170,5 +170,13 @@ public class ProductController
 		
 		return "ProductPage";
 	}
+	@RequestMapping(value="/ProductDesc/{prodid}")
+	public String showProductDesc(@PathVariable("prodid")int prodid, Model m)
+	{
+		Product product=productDAO.getProduct(prodid);
+		m.addAttribute("prodinfo",product);
+		
+		return "ProductDesc";
+	}
 
 }

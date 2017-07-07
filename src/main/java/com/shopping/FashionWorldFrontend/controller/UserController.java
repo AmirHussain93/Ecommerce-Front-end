@@ -1,19 +1,28 @@
 package com.shopping.FashionWorldFrontend.controller;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.shopping.FashionWorldBackend.dao.ProductDAO;
+import com.shopping.FashionWorldBackend.model.Product;
 
 @Controller
 public class UserController 
 {
+    @Autowired
+    ProductDAO productDAO;
+    
 	@RequestMapping("/login_Success")
-	public String loginSuccess(HttpSession session)
+	public String loginSuccess(HttpSession session,Model m)
 	{
 		System.out.println("-------Login Successful-----");
 		String page=null;
@@ -30,12 +39,15 @@ public class UserController
 		for (GrantedAuthority role:authorities)
 		{
 			System.out.println("Role:"+role.getAuthority()+"User Name:"+username+"-----");
+			
 			if(role.getAuthority().equals("ROLE_ADMIN"))
 			{
 				page="AdminHome";
 			}
 			else
 			{
+				List<Product> prodlist = productDAO.getProductDetails();
+				m.addAttribute("prodlist",prodlist);
 				page="UserHome";
 			}
 		}

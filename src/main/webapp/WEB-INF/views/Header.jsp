@@ -40,7 +40,9 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.jsp">Home</a></li>
        <!-- <li><a href="index.jsp">Index</a></li>-->
-       
+          <security:authorize access="hasRole('ROLE_ADMIN')">
+      <li><a href="addpc">Add a product</a></li>
+</security:authorize>
         <li><a href="/FadshionWorldFrontend/Login">Login</a></li>
         <li><a href="/FadshionWorldFrontend/AboutUs">AboutUs</a></li>
         <li><a href="/FadshionWorldFrontend/Register">Register</a></li>

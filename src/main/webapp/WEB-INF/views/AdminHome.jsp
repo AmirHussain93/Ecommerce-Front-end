@@ -17,9 +17,7 @@
 <title>Admin Home Page</title>
 </head>
 <body>
-<security:authorize access="hasRole ('ROLE_ADMIN')">
-      <li><a href="addpc">Add a product</a></li>
-</security:authorize>
+
 </body>
  <ul class="nav navbar-nav">
         <li class="active"><a href="AdminHome">Home</a></li>

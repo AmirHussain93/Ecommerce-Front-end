@@ -30,11 +30,6 @@ public class PageController
 		return "index";
 	}
 	
-	@RequestMapping("/Register")
-	public String showRegister()
-	{
-		return "Register";
-	}
 	
 	@RequestMapping("/ContactUs")
 	public String showContactUs()

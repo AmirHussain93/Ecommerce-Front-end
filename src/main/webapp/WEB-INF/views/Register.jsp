@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
     
     <%@ include file="Header.jsp" %>
 
@@ -14,6 +15,13 @@
 <title> Register </title>
 </head>
 <body>
+<c:if test="${flag}">
+<form action="/FadshionWorldFrontend/updateUserDetail" method="post">
+</c:if>
+<c:if test="${!flag}">
+<form action="/FadshionWorldFrontend/InsertUserDetail" method="post">
+</c:if>
+<form action="/InsertUserDetail" method="post">
     <div class="modal-dialog">
       <!--<div class="modal-content">-->
         <div class="modal-header">
@@ -21,29 +29,44 @@
 		<!--</div>-->
 		<div class="modal-body">
 		   <form class="col-md-12 center block">
+		   
 		      <div class="form-group">
 			   <label>Name</label>
-			    <input type="text" style=" height:30px" name="CustName" id="Custname" class="form-control input-lg" placeholder="Enter Your Name">
+			      <c:if test="${!flag}">
+			        <input type="text" style="height:30px" name="CustName" id="CustName" class="form-control input-lg" placeholder="Enter Your Name">
+			      </c:if>
 			  </div>
+			  
 			  <div class="form-group">
 			     <label>Username</label>
-			     <input type="text" style=" height:30px" name="username" id="username" class="form-control input-lg" placeholder="username">
+			        <c:if test="${!flag}">
+			          <input type="text" style=" height:30px" name="username" id="username" class="form-control input-lg" placeholder="username">
+			        </c:if>
 			  </div>
 			  <div class="form-group">
-			     <label>Password</label>
-			     <input type="password" style=" height:30px" name="password" id="password" class="form-control input-lg" placeholder="Atleast 4 character">
+			      <label>Password</label>
+			         <c:if test="${!flag}">
+			           <input type="password" style=" height:30px" name="password" id="password" class="form-control input-lg" placeholder="Atleast 4 character">
+			         </c:if>
 			  </div>
 			  <div class="form-group">
 			      <label>Email</label>
-			      <input type="text" style=" height:30px" name="Email" id="Email" class="form-control input-lg" placeholder="Ex xyz@gmail.com">
+			         <c:if test="${!flag}">
+			           <input type="text" style=" height:30px" name="Email" id="Email" class="form-control input-lg" placeholder="Ex xyz@gmail.com">
+			         </c:if>
 			  </div>
+			  
 			   <div class="form-group">
 			      <label>Mobile No</label>
-			      <input type="text" style=" height:30px" name="Mobile" id="Mobile" class="form-control input-lg" placeholder="Enter your contact number">
+			        <c:if test="${!flag}">
+			          <input type="text" style=" height:30px" name="Mobile" id="Mobile" class="form-control input-lg" placeholder="Enter your contact number">
+			        </c:if>
 			  </div>
 			  <div class="form-group">
 			      <label>Address</label>
-			      <input type="text"  style=" height:80px"  name="Address" id="Address" class="form-control input-lg" placeholder="Enter your full address">
+			          <c:if test="${!flag}">
+			            <input type="text"  style=" height:80px"  name="Address" id="Address" class="form-control input-lg" placeholder="Enter your full address">
+			          </c:if>
 			  </div>
 			  <div class="form-group">
 			      <input type="submit" class="btn btn-block btn-lg btn-success" value="Submit">
