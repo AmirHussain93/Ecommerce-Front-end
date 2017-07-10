@@ -20,9 +20,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
          <security:http auto-config="true" use-expressions="true">
         <security:intercept-url pattern="/UserHome" access="hasRole('ROLE_USER')"/>
         <security:intercept-url pattern="/AdminHome" access="hasRole('ROLE_ADMIN')"/>
+             
         
-        
-        <security:form-login login-page="/Login" default-target-url="/" 
+        <security:form-login login-page="/Login" default-target-url="/login_Success" 
         login-processing-url="/loginProcess" authentication-failure-url="/Login" />
          
        

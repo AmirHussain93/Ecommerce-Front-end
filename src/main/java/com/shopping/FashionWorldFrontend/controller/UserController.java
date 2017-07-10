@@ -31,7 +31,7 @@ public class UserController
 		//Retrieving the username
 		String username=SecurityContextHolder.getContext().getAuthentication().getName();
 		session.setAttribute("username", username);
-		session.setAttribute("loggenIn",loggedIn);
+		session.setAttribute("loggedIn",loggedIn);
 		
 		//Retrieving role
 		Collection<GrantedAuthority> authorities=(Collection<GrantedAuthority>)SecurityContextHolder.getContext().getAuthentication().getAuthorities();

@@ -2,6 +2,8 @@ package com.shopping.FashionWorldFrontend.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,8 +27,9 @@ public class PageController
 	}
 	
 	@RequestMapping("/")
-	public String showIndex()
+	public String showIndex(HttpServletRequest req)
 	{
+		System.out.println(req.getUserPrincipal().getName());
 		return "index";
 	}
 	

@@ -22,11 +22,11 @@ public class UserDetailController
 	public String showUserDetail(Model m)
 	{
 		System.out.println("---UserDetail Page Displaying-----");
-		List<UserDetail> userdetaillist=userDetailDAO.getUserDetailDetails();
+		/*List<UserDetail> userdetaillist=userDetailDAO.getUserDetailDetails();
 		m.addAttribute("userdetail",userdetaillist);
 		
 		boolean flag=false;
-		m.addAttribute("flag",flag);
+		m.addAttribute("flag",flag);*/
 		return "Register";
 		
 		
@@ -50,7 +50,7 @@ public class UserDetailController
 		return "Register";
 	}
 	
-	@RequestMapping(value="/updateUserDetail/{username}")
+	/*@RequestMapping(value="/updateUserDetail/{username}")
 	public String updateUserDetail(@PathVariable("username") String username,Model m)
 	{
 		
@@ -84,7 +84,7 @@ public class UserDetailController
 		m.addAttribute("flag",flag);
 		
 		return "Register";
-	}
+	}*/
 	
 
 }

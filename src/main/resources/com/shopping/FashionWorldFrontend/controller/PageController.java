@@ -1,5 +1,9 @@
 package com.shopping.FashionWorldFrontend.controller;
 
+import java.security.Principal;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,8 +17,12 @@ public class PageController
 	}
 	
 	@RequestMapping("/")
-	public String showIndex()
+	public String showIndex(HttpServletRequest req)
 	{
+	Principal p=	req.getUserPrincipal();
+	System.out.println(p.getName());
+		
+	}
 		return "index";
 	}
 	

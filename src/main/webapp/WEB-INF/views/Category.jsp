@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@include file="Header.jsp"%>
+<%@include file="AdminHeader.jsp"%>
 
 <html>
 <head>

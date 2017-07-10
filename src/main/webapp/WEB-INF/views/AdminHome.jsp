@@ -3,7 +3,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
   <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
     
-<%@include file="Header.jsp"%>
+<%@include file="AdminHeader.jsp"%>
     
     
 
@@ -19,13 +19,5 @@
 <body>
 
 </body>
- <ul class="nav navbar-nav">
-        <li class="active"><a href="AdminHome">Home</a></li>
-       
-       
-        <li><a href="Category">Manage Category</a></li>
-        <li><a href="Supplier">Manage Supplier</a></li>
-        <li><a href="Product">Manage Product</a></li>
-      
-       </ul>
+ 
 </html>
