@@ -24,16 +24,19 @@
     <td>${cartitem.price * cartitem.quantity}</td>
     <td><img src="<c:url value='/resources/images/${cartitem.prodid}.jpg'/>" width="100"/></td> 
     <td>
-        <input type="submit" value="UPDATE" class="btn-success btn-block" />
-        <input type="submit" value="/deleteCartItem/${cartitem.citemid}"/>
+        <input type="submit" value="UPDATE" class="btn-success btn-block" name="update" />
+        
+        <a href="<c:url value="/deleteCartItem/${cartitem.citemid}"/>">Delete</a>
     </td>
     </form>
 </tr>
-<tr>
-    <td> <a href="ProductPage">ContinueShopping</a></td>
-    <td> <a href="CheckOut">CheckOut</a></td>
-</tr>
 </c:forEach>
+<tr>
+    <td> <a href="/FadshionWorldFrontend/ProductPage"> ContinueShopping </a><br></td>
+  
+    <td> <a href="/FadshionWorldFrontend/Checkout">CheckOut</a></td>
+</tr>
+
 </table>
 
 </body>

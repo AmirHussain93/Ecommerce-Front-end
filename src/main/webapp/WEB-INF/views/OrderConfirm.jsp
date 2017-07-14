@@ -10,28 +10,35 @@
 </head>
 
 <body>
-    <table cellspacing="3" align="center">
+    <table cellspacing="4" align="center" >
        <tr>
-            <td colspan="5"><center><h3>Shpping Cart</h3></center></td>
+            <td colspan="5"><center><h3>Shopping Cart</h3></center></td>
        </tr>
        <tr bgcolor='blue'>
          <td>Product Name</td>
          <td>Quantity</td>
-         <td>SubTotal</td>
          <td>Images</td>
-         <td>Operation</td>
+         <td>SubTotal</td>
+         
+        
         </tr>
   <c:forEach items="${cartitems}" var="cartitem">
   <tr>
-    <td>${cartitem.prodmname}</td>
+    <td>${cartitem.prodname}</td>
     <td>${cartitem.quantity}</td>
     <td><img src="<c:url value='/resources/images/${cartitem.prodid}.jpg'/>" width="100"/></td> 
     <td>${cartitem.price * cartitem.quantity}</td>
+    
   </tr>
   </c:forEach>
   <tr>
-      <td colspan="3"> Grant total </td>
-      <td>${granttotal}</td>
+      <td colspan="3"> Grand total </td>
+      <td>${grandtotal}</td>
   </tr>
+   <tr>
+    <td> <br><br><br><a href="/FadshionWorldFrontend/Payment/"+${cartitem.citemid}> Make Payment</a></td>
+  </tr>
+ 
+  
 </body>
 </html>

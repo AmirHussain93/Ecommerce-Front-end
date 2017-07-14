@@ -25,7 +25,7 @@ public class CartController
 	@Autowired
 	ProductDAO productDAO;
 	
-	@RequestMapping(value="/addToCart")
+	@RequestMapping(value="/addToCart/{prodid}")
     public String addToCart(@PathVariable("prodid")int prodid, @RequestParam("quantity")int quantity,HttpSession session,Model m)
 	{
 		Cart cart=new Cart();
@@ -44,19 +44,23 @@ public class CartController
 		
 		cartDAO.addToCart(cart);
 		List<Cart> list=cartDAO.getCartItems(username);
-		m.addAttribute("list",list);
+		m.addAttribute("cartitems",list);
 		
 		return "Cart";
 		 
 		 
 	}
 		
-    @RequestMapping(value="/updateCartItem/{prodid}")
-	public String updateCartITem(@PathVariable("citemid")int citemid, @RequestParam("quantity")int quantity,HttpSession session,Model m)
+    @RequestMapping(value="/updateCartItem/{citemid}")
+	public String updateCartITem(@PathVariable("citemid")Long citemid, @RequestParam("quantity")int quantity,@RequestParam("update") String optype,HttpSession session,Model m)
 	{
 		Cart cart=cartDAO.getCartItem(citemid);
-		
 		String username=(String) session.getAttribute("username");
+		if(optype.equals("DELETE"))
+		{
+		return	 "redirect:/deleteCartItem/"+citemid;
+		}
+		
 		cart.setQuantity(quantity);
 		cartDAO.updateCartItem(cart);
 		
@@ -66,9 +70,12 @@ public class CartController
 		
 		return "Cart";
 	}
-    
+   /*public void delete(Cart c)
+    {
+    	cartDAO.deleteCartItem(c);
+    }*/
     @RequestMapping(value="/deleteCartItem/{citemid}")
-    public String deleteCartItem(@PathVariable("citemid")int citemid,HttpSession session,Model m)
+    public String deleteCartItem(@PathVariable("citemid")Long citemid,HttpSession session,Model m)
     {
     	Cart cart=cartDAO.getCartItem(citemid);
     	
@@ -81,5 +88,7 @@ public class CartController
     	return "Cart";
     	
     }
+    
+   
     
 }

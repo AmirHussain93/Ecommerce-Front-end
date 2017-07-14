@@ -54,7 +54,7 @@ public class ProductController
 		
 		List<Product> prodlist=productDAO.getProductDetails();
 		m.addAttribute("prodlist",prodlist);
-     boolean		flag=true;
+		boolean flag=true;
 		m.addAttribute("flag",flag);
 		
 		return "Product";
@@ -69,7 +69,7 @@ public class ProductController
 		System.out.println("------Images Storing started------");
 		
 
-        String path="D:\\Amir\\AmirEcommerceProject\\FadshionWorldFrontend\\src\\main\\resources\\images\\";
+        String path="D:\\Amir\\AmirEcommerceProject\\FadshionWorldFrontend\\src\\main\\webapp\\resources\\images\\";
 		String fileinfo=path+product.getProdid()+".jpg";
 		File f=new File(fileinfo);
 		
@@ -162,14 +162,15 @@ public class ProductController
 		return supplist;
 	}
 	
-	@RequestMapping(value="/displayproduct")
+/*	@RequestMapping(value="/displayproduct")
 	public String displayProduct(Model m)
 	{
 		List<Product> prodlist=productDAO.getProductDetails();
+		System.out.println("product list  getting printed "+prodlist);
 		m.addAttribute("prodlist",prodlist);
 		
 		return "ProductPage";
-	}
+	}*/
 	@RequestMapping(value="/ProductDesc/{prodid}")
 	public String showProductDesc(@PathVariable("prodid")int prodid, Model m)
 	{

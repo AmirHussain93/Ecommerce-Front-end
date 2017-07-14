@@ -3,7 +3,7 @@
 
 <html>
 <body>
-   <security:authorize access="hasRole('ROLE_ADMIN')"></security:authorize>
+   <!-- <security:authorize access="hasRole('ROLE_ADMIN')"></security:authorize> -->
    <jsp:include page="WEB-INF/views/Header.jsp"></jsp:include>
    
 

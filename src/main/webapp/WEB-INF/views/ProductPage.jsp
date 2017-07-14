@@ -21,7 +21,10 @@
   <div class="row"> 
 
   <div class ="col-sm-6 col-md-3">
+  
+  
   <c:forEach items="${prodlist}" var="product">
+  
      <a href="ProductDesc/${product.prodDesc }" class="thumbnail">
      <img src="<c:url value="/resources/images/${product.prodid}.jpg"/>">
      </a>

@@ -47,7 +47,7 @@ public class UserDetailController
 		m.addAttribute("flag",flag);
 		
 		System.out.println("---UserDetail Added----");
-		return "Register";
+		return "Register2";
 	}
 	
 	/*@RequestMapping(value="/updateUserDetail/{username}")

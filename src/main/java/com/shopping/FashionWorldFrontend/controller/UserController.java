@@ -3,11 +3,15 @@ package com.shopping.FashionWorldFrontend.controller;
 import java.util.Collection;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,11 +51,23 @@ public class UserController
 			else
 			{
 				List<Product> prodlist = productDAO.getProductDetails();
+				System.out.println(prodlist);
 				m.addAttribute("prodlist",prodlist);
 				page="UserHome";
 			}
 		}
 		return page;
+	}
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest req,HttpServletResponse res )
+	{
+		req.getSession(false).invalidate();
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+	       new	SecurityContextLogoutHandler().logout(req, res,auth);
+	       req.getSession().setAttribute("loggedIn",false);   
+		
+		
+		return "Login";
 	}
 
 }

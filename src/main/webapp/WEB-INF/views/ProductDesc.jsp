@@ -26,7 +26,7 @@
          <td> Supplier </td><td>${prodinfo.suppid}</td>
     </tr>
     <tr>
-         <td> product Desc </td><td>${prodinfo.desc}</td>
+         <td> product Desc </td><td>${prodinfo.prodDesc}</td>
     </tr> 
     <tr>
          <td> product Price </td><td>${prodinfo.price}</td>
@@ -35,7 +35,7 @@
     <tr>
         <td><td>
         </td>
-        <form action="/addToCart/$prodinfo.prodid}" methods="get">
+        <form action="/FadshionWorldFrontend/addToCart/${prodinfo.prodid}" methods="get">
         Quantity <input type="text" name="quantity" class="form-control btn-block "/>
         <input type="submit" value="AddToCart" class="btn btn-xs btn-success btn-block"/>
         </form>
