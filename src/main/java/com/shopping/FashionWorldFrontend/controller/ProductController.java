@@ -101,12 +101,13 @@ public class ProductController
 		return "Product";
 	}
 	
-	@RequestMapping(value="/updateProduct/{prodid}")
+	@RequestMapping(value="/updateProduct/{prodid}",method=RequestMethod.GET)
 	public String updateProduct(@PathVariable("prodid")int prodid,Model m)
 	{
 		System.out.println("id is "+prodid);
 		
 		Product product=productDAO.getProduct(prodid);
+	//	productDAO.insertUpdateProduct(product);
 		System.out.println(product.getProdid());
 		m.addAttribute("product",product);
 		m.addAttribute("catlist",this.getCatList());

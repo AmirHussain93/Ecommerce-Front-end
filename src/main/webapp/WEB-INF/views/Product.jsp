@@ -19,7 +19,10 @@
 
 </c:set>
 
-<form:form action="/FadshionWorldFrontend/InsertProduct" modelAttribute="product" enctype="multipart/form-data">
+
+<form:form action="/FadshionWorldFrontend/InsertProduct" modelAttribute="product" enctype="multipart/form-data"  method="post">
+
+
 <table align="center">
 			<tr>
 				<td colspan="2"><center>Product Details</center></td>
@@ -27,10 +30,10 @@
 			<tr>
 				<td>Product ID</td>
 				<c:if test="${flag}">
-<td><form:input path="prodid" value="${myprod.prodid}"  readonly="true"/></td>
+<td><form:input path="prodid" value="0"  readonly="true"/></td>
 				</c:if>
 				<c:if test="${!flag}">
-<td><form:input path="prodid" value="0"  readonly="true"/></td>
+<td><form:input path="prodid" value="${myprod.prodid}"  readonly="true"/></td>
 				</c:if>
 			
 				

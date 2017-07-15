@@ -29,13 +29,14 @@ public class OrderController
 		String username=(String)session.getAttribute("username");
 		
 		List<Cart> list = cartDAO.getCartItems(username);
-		int grandtotal = 0;
+		float grandtotal = 0;
 		
 		for(Cart cart:list)
 		{
 			grandtotal=grandtotal+(cart.getQuantity()*cart.getPrice());
 		}
 		m.addAttribute("grandtotal",grandtotal);
+		session.setAttribute("gtotal", grandtotal);
 		m.addAttribute("cartitems",list);
 		
 		return "OrderConfirm";

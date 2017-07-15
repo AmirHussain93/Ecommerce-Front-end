@@ -24,6 +24,7 @@
               <li><a href="Category">Manage Category</a></li>
               <li><a href="Supplier">Manage Supplier</a></li>
               <li><a href="Product">Manage Product</a></li>
+             
               <li><a href="/FadshionWorldFrontend/logout">Logout</a></li>
             
         </ul>

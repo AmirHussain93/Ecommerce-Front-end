@@ -30,13 +30,14 @@
     <td>${cartitem.price * cartitem.quantity}</td>
     
   </tr>
+  <c:set var="pid" value="${cartitem.citemid}"/>
   </c:forEach>
   <tr>
       <td colspan="3"> Grand total </td>
       <td>${grandtotal}</td>
   </tr>
    <tr>
-    <td> <br><br><br><a href="/FadshionWorldFrontend/Payment/"+${cartitem.citemid}> Make Payment</a></td>
+   <td><br><br><br><a href="/FadshionWorldFrontend/Payment/${pid}"> Make Payment</a></td>
   </tr>
  
   

@@ -31,7 +31,9 @@ public class CartController
 		Cart cart=new Cart();
 		
 		String username=(String) session.getAttribute("username");
-		cart.setCartid(1001);
+		java.util.Date dt=new java.util.Date();
+		String date=dt.getYear()+":"+dt.getMonth()+":"+dt.getDate()+dt.getHours();
+		cart.setCartid(username+date);
 		cart.setProdid(prodid);
 		cart.setQuantity(quantity);
 		

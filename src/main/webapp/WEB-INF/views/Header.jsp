@@ -1,4 +1,4 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
    
 <html>
 <head>
@@ -25,6 +25,8 @@
              <li class="active"><a href="index.jsp">Home</a></li>
              <li><a href="/FadshionWorldFrontend/logout">Logout</a></li>
              <li><a href="/FadshionWorldFrontend/ProductPage">Products</a></li>
+             <li><a href="/FadshionWorldFrontend/AboutUs">AboutUs</a></li>
+             <li><a href="/FadshionWorldFrontend/ContactUs">ContactUs</a></li>
      </ul>
      
      <div class="nav navbar-nav navbar-right">
