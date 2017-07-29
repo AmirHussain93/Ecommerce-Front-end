@@ -43,7 +43,8 @@ public class ProductController
 	public String showProduct(Model m)
 	{
 		
-		
+
+
 		Product product=new Product();
 		
 		m.addAttribute("catlist",this.getCatList());
@@ -54,7 +55,7 @@ public class ProductController
 		
 		List<Product> prodlist=productDAO.getProductDetails();
 		m.addAttribute("prodlist",prodlist);
-		boolean flag=true;
+		boolean flag=false;
 		m.addAttribute("flag",flag);
 		
 		return "Product";
@@ -63,6 +64,8 @@ public class ProductController
 	@RequestMapping(value="/InsertProduct",method=RequestMethod.POST)
 	public String insertProduct(@ModelAttribute("product") Product product,Model m,@RequestParam("pimage") MultipartFile filedet,BindingResult result)
 	{
+		boolean insertupdate=true;
+		m.addAttribute("update", insertupdate);
 		System.out.println("---Product Inserted---");
 		productDAO.insertUpdateProduct(product);	
 		
@@ -98,7 +101,7 @@ public class ProductController
 		m.addAttribute("prodlist",prodlist);
 	boolean	flag=true;
 		m.addAttribute("flag",flag);
-		return "Product";
+		return "redirect:Product";
 	}
 	
 	@RequestMapping(value="/updateProduct/{prodid}",method=RequestMethod.GET)

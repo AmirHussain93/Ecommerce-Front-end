@@ -7,10 +7,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Product Description</title>
 </head>
+<style>
+input[type=submit] {
+    width: 20em;  height: 2em;
+}
+input[type=text] {
+    width: 20em;  height: 2em;
+}
+</style>
 
- <body>
+ <body><br><br><br>
    <table width="60%" align="center" border="1">
-    <tr bgcolor="blue">
+    <tr bgcolor="lightblue">
          <td colspan="3"><center>Product Description</center></td>
     </tr>
     <tr>
@@ -36,8 +44,8 @@
         <td><td>
         </td>
         <form action="/FadshionWorldFrontend/addToCart/${prodinfo.prodid}" methods="get">
-        Quantity <input type="text" name="quantity" class="form-control btn-block "/>
-        <input type="submit" value="AddToCart" class="btn btn-xs btn-success btn-block"/>
+        <center>Quantity <input type="text" name="quantity" class="form-control btn-block " required /></center>
+        <center><input type="submit" value="AddToCart" class="btn btn-success"/></center>
         </form>
         </td>
     </tr>

@@ -108,7 +108,7 @@ public class PageController
 	    float gtotal=Float.parseFloat(session.getAttribute("gtotal").toString());
   obj.setPrice((int)gtotal);
   paymentDAO.insertPaymentDetails(obj);
-	    return "Successful";
+	    return "OrderDetails";
 	}
 
 	

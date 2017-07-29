@@ -12,6 +12,11 @@
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <title>Supplier</title>
 </head>
+<style>
+body {
+  background-color:#E3DAD8;
+}
+</style>
 <body>
 <!-- Supplier Form Started -->
 <c:if test="${flag}">
@@ -22,8 +27,9 @@
 </c:if>
 <form action="Supplier" method="post">
 <table align="center" cellspacing="2">
+
+      &nbsp;<center><h2>Supplier Details</h2></center>&nbsp;
 	<tr>
-		<td colspan="2">Supplier Details</td>
 		<c:if test="${flag}">
 			<input type="text" name="suppid" value="${supplier.suppid}"/>
 		</c:if>
@@ -34,7 +40,7 @@
 				<td><input type="text" name="suppname" value="${supplier.suppname}" /></td>
 			</c:if>
 			<c:if test="${!flag}">
-	            <td><input type="text" name="suppname"/></td>
+	            <td><input type="text" name="suppname" required/></td>
 	        </c:if>
 	</tr>
 	<tr>
@@ -43,7 +49,7 @@
 				<td><input type="text" name="Address" value="${supplier.address}" /></td>
     </c:if>
     <c:if test="${!flag}">
-	<td><input type="text" name="Address"/></td>
+	<td><input type="text" name="Address" required/></td>
 	</c:if>
 	</tr>
 	<tr>
@@ -55,18 +61,20 @@
 </form>
 <!-- Supplier Form Completed -->
 
+<br>
+
 <!-- Displaying the Supplier data using Table -->
 <table cellspacing="2" align="center" border="1">
 
-	<tr bgcolor="pink">
-		<td>Supplier ID</td>
-		<td>Supplier Name</td>
-		<td>Supplier Address</td>
+     <tr style="background-color:rgb(128,128,128);color:white">
+		<td width=25%>Supplier ID</td>
+		<td width=30%>Supplier Name</td>
+		<td width=30%>Supplier Address</td>
 		<td>Operation</td>
 	</tr>
 	<c:forEach items="${suppdetail}" var="supplier">
-		<tr bgcolor="cyan">
-			<td>${supplier.suppid}</td>
+		<tr style="background-color:rgb(200,200,200);color:black">
+			<td height="30">${supplier.suppid}</td>
 			<td>${supplier.suppname}</td>
 			<td>${supplier.address}</td>
 			<td><a href="<c:url value="/deleteSupplier/${supplier.suppid}"/>">Delete</a>

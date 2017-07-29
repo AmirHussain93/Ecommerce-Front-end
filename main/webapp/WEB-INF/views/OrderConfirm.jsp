@@ -12,16 +12,25 @@
 <body>
     <table cellspacing="4" align="center" >
        <tr>
-            <td colspan="5"><center><h3>Shopping Cart</h3></center></td>
+            <td colspan="5"><center><h2><font color="black"> Shopping Cart</font></h2></center></td>
        </tr>
-       <tr bgcolor='blue'>
-         <td>Product Name</td>
-         <td>Quantity</td>
-         <td>Images</td>
-         <td>SubTotal</td>
-         
-        
-        </tr>
+       
+       <tr class="blank_row">
+            <td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
+       </tr>
+       
+       <tr style="background-color:rgb(128,128,128);color:white">
+         <td width=40%>Product Name</td>
+         <td width=20%>Quantity</td>
+         <td width=30%>Images</td>
+         <td width=25%>SubTotal</td>
+       </tr>
+       
+       <tr class="blank_row">
+            <td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
+       </tr>
+       
+       
   <c:forEach items="${cartitems}" var="cartitem">
   <tr>
     <td>${cartitem.prodname}</td>
@@ -32,12 +41,16 @@
   </tr>
   <c:set var="pid" value="${cartitem.citemid}"/>
   </c:forEach>
+  
+   <tr class="blank_row">
+            <td bgcolor="#FFFFFF" colspan="3">&nbsp;</td>
+   </tr>
   <tr>
       <td colspan="3"> Grand total </td>
       <td>${grandtotal}</td>
   </tr>
    <tr>
-   <td><br><br><br><a href="/FadshionWorldFrontend/Payment/${pid}"> Make Payment</a></td>
+   <td> <br><br><br><a href="/FadshionWorldFrontend/Payment/${pid}" class="btn btn-primary"> Make Payment</a></td>
   </tr>
  
   

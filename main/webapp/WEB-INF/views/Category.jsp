@@ -12,6 +12,11 @@
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <title>Category</title>
 </head>
+<style>
+body {
+  background-color:#E3DAD8;
+}
+</style>
 <body>
 
 <!-- Category Form Started -->
@@ -23,10 +28,11 @@
 </c:if>
 
 	<table align="center" cellspacing="2">
+	
+	        &nbsp; <center> <h2>Category Details</h2></center>&nbsp;
 		<tr>
-			<td colspan="2">Category Details</td>
 			<c:if test="${flag}">
-			<input type="text" name="catid" value="${category.catid}"/>
+			<input type="text" name="catid" value="${category.catid}" />
 			</c:if>
 		</tr>
 		<tr>
@@ -35,7 +41,7 @@
 				<td><input type="text" name="catname" value="${category.catname}" /></td>
 			</c:if>
 			<c:if test="${!flag}">
-				<td><input type="text" name="catname" /></td>
+				<td><input type="text" name="catname" required/></td>
 			</c:if>
 		</tr>
 		<tr>
@@ -44,7 +50,7 @@
 				<td><input type="text" name="catdesc" value="${category.catdesc}" /></td>
 			</c:if>
 			<c:if test="${!flag}">
-			<td><input type="text" name="catdesc" /></td>
+			<td><input type="text" name="catdesc" required/></td>
 			</c:if>
 		</tr>
 		<tr>
@@ -53,19 +59,19 @@
 	</table>
 </form>
 <!-- Category Form Completed -->
-
+&nbsp;&nbsp;
 <!-- Displaying the Category data using Table -->
 <table cellspacing="2" align="center" border="1">
 
-	<tr bgcolor="pink">
-		<td>Category ID</td>
-		<td>Category Name</td>
-		<td>Category Desc</td>
+	<tr  style="background-color:rgb(128,128,128);color:white">
+		<td width=20%>Category ID</td>
+		<td width=30%>Category Name</td>
+		<td width=35%>Category Desc</td>
 		<td>Operation</td>
 	</tr>
 	<c:forEach items="${catdetail}" var="category">
-		<tr bgcolor="cyan">
-			<td>${category.catid}</td>
+		<tr style="background-color:rgb(200,200,200);color:black">
+			<td height="30">${category.catid}</td>
 			<td>${category.catname}</td>
 			<td>${category.catdesc}</td>
 			<td><a href="<c:url value="/deleteCategory/${category.catid}"/>">Delete</a>

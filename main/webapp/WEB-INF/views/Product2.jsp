@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
-<%@include file="AdminHeader.jsp"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@include file="AdminHeader.jsp"%>
 
 <html>
 <head>
@@ -20,13 +19,14 @@ body {
 </style>
 
 <body>
-<c:set value ="${product}" var="myprod">
 
-</c:set>
-
-
-<form:form action="/FadshionWorldFrontend/InsertProduct" modelAttribute="product" enctype="multipart/form-data"  method="post">
-
+<c:if test="${flag}">
+<form action="/FadshionWorldFrontend/InsertProduct" modelAttribute="product" enctype="multipart/form-data"  method="post">
+</c:if>
+<c:if test="${!flag}">
+<form action="updateProduct" method="post">
+</c:if>
+<form action="Product" method="post">
 
 <table align="center">
 			<tr>
@@ -34,67 +34,65 @@ body {
 			</tr>
 			<tr>
 				<td>Product ID</td>
-				<c:if test="${flag}">
-<td><form:input path="prodid" value="0"  readonly="true"/></td>
-				</c:if>
-				<c:if test="${!flag}">
-<td><form:input path="prodid" value="${myprod.prodid}"  readonly="true"/></td>
-				</c:if>
-			
+				  <c:if test="${flag}">
+                    <td><input type="text" name="prodid" value="${product.prodid}"  readonly="true"/></td>
+				  </c:if>
 				
-			</tr>
 			<tr>
-				<td>Product Name</td>
-				<c:if test="${flag}">
-				<td><form:input path="prodname" value="${myprod.prodname}"/></td>
-				</c:if>
-				<c:if test="${!flag}">
-				<td><form:input path="prodname" /></td>
-				</c:if>
-			</tr>
+	             <td>Product Name</td>
+	               <c:if test="${flag}">
+				      <td><input type="text" name="prodname" value="${product.prodname}" /></td>
+		      	   </c:if>
+			       <c:if test="${!flag}">
+	                  <td><input type="text" name="prodname" required/></td>
+	               </c:if>
+	        </tr>
 			
 			<tr>
 				<td>Category</td>
-				<td><form:select path="catid">
-						<form:option value="0" label="----Select----" />
-						<form:options items="${catlist}" />
-					</form:select>
+				<td><select path="catid">
+						<option value="0" label="----Select----" />
+						<options items="${catlist}" />
+					</select>
 				</td>
 			</tr>
 			
 			<tr>
 				<td>Supplier</td>
-				<td><form:select path="suppid"> 
-				        <form:option value="0" label="----Select----" />
-				        <form:options items="${supplist}" />
-				    </form:select>
+				<td><select path="suppid"> 
+				           <c:forEach items="${supplist}" var='pritem'>
+				        <option>
+				           ${pritem}
+				        <option/>
+                       </c:forEach>
+				    </select>
 				</td>
 			</tr>
 			<tr>
-				<td>Price</td>
-				<c:if test="${flag}">
-				<td><form:input path="price" value="${myprod.price}"/></td>
-				</c:if>
-				<c:if test="${!flag}">
-				<td><form:input path="price" /></td>
-				</c:if>
-			</tr>
+	             <td>Price</td>
+	               <c:if test="${flag}">
+				      <td><input type="text" name="price" value="${product.price}" /></td>
+		      	   </c:if>
+			       <c:if test="${!flag}">
+	                  <td><input type="text" name="price" required/></td>
+	               </c:if>
+	        </tr>
 			<tr>
 				<td>Stock</td>
 				<c:if test="${flag}">
-				<td><form:input path="quantity" value="${myprod.quantity}"/></td>
+				<td><input type="text" name="quantity" value="${product.quantity}"/></td>
 				</c:if>
 				<c:if test="${!flag}">
-				<td><form:input path="quantity"  /></td>
+				<td><input type="text" name="quantity" /></td>
 				</c:if> 
 			</tr>
 			<tr>
 				<td>Product Desc</td>
 				<c:if test="${flag}">
-				<td><form:textarea path="prodDesc" value="${myprod.prodDesc}"/></td>
+				<td><input type="prodDesc" name="prodDesc" value="${product.prodDesc}"/></td>
 				</c:if>
 				<c:if test="${!flag}">
-					<td><form:textarea path="prodDesc" /></td>
+					<td><input type="text" name="prodDesc"/></td>
 					</c:if>
 			</tr>
 			<tr>
@@ -106,16 +104,16 @@ body {
 			<td colspan="2"><input type="submit" /></td>
 			</tr>
 </table>
-</form:form>
+</form>
 
 <!-- Displaying the Product data using Table -->
 <table cellspacing="2" align="center" border="1">
 
 	<tr style="background-color:rgb(128,128,128);color:white">
-		<td width="40">Product ID</td>
+		<td width="35">Product ID</td>
 		<td width="30">Product Name</td>
 		<td width="30">Image</td>
-		<td width="40">Price</td>
+		<td width="30">Price</td>
 		<td width="30">Quantity</td>
 		<td width="35">Category Id</td>
 		<td width="35">Supplier Id</td>

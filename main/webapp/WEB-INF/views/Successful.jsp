@@ -8,6 +8,9 @@
 </head>
 
 <style>
+body {
+  background-color:#BFC9CA;
+}
 h1{
 
 color:blue;

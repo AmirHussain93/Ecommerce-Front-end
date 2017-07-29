@@ -14,7 +14,7 @@
    <!-- <security:authorize access="hasRole('ROLE_ADMIN')"></security:authorize> -->
    <jsp:include page="WEB-INF/views/Header.jsp"></jsp:include>
    <h2 align="center">Fashion World</h2>
-   
+   <center>
    </br/> <br/>
    <div class="container">
       <div class="row">
@@ -41,7 +41,7 @@
        </div>
      </div>
    </div>
-
+   </center>
 
 </body>
 </html>

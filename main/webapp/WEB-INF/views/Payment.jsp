@@ -6,15 +6,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Payment</title>
 </head>
+<style>
+body{
+background-color:lightblue
+}
+</style>
 <body>
+<br><br>
+<center><h1>Make payment</h1></center>
     <form action="/FadshionWorldFrontend/Payment/${citemid}" method="post">
-    
-    <select name="mode" id="mymenu">
+    <br>
+    <br>
+    <br>
+  <center>  <select name="mode" id="mymenu">
     <option>cash on delivery</option>
-    <option>card</option>
+    <option>card</option></center>
     
     <input type="text" name="cardnumber" id="cardfield" value='0'/>
-    <input type="hidden" name="cardnumber"  value="0"/>
+    <input type="hidden" name="cardnumber"  value='0'/>
 
 </select>
 <input type="submit" value= "Go ahead" >
